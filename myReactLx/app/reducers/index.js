@@ -26,6 +26,12 @@ export const makeRootReducer = (asyncReducers) => {
   })
 }
 
+/**
+ * 注入异步 Reducer
+ * @param {object} store store
+ * @param {string} name 名称
+ * @param {object} asyncReducer reducer
+ */
 export function injectAsyncReducer(store, name, asyncReducer) {
   store.asyncReducers[name] = asyncReducer;
   store.replaceReducer(makeRootReducer(store.asyncReducers));

@@ -18,11 +18,7 @@ export default class practicePage1 extends Component{
                     <Breadcrumb.Item>传值</Breadcrumb.Item>
                 </Breadcrumb>
                 <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
-                    <div id="CSStransforms">
-                        <canvas id="glcanvas" width="640" height="480">
-                            Your browser doesn't appear to support the HTML5 <code>&lt;canvas&gt;</code> element.
-                        </canvas>
-                    </div>
+                    <p>ddddd</p>
                 </div>
             </div>
         )
