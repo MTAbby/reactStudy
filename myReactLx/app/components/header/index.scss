@@ -1,0 +1,19 @@
+.app-header {
+    display: flex;
+    .app-name {
+        flex-grow: 1;
+        a{
+            font-size: 20px;
+            color: #fff;
+        }
+    }
+    .app-user {
+        align-items: center;
+        display: flex;
+        color: #fff;
+    
+        .name {
+            margin-left: 10px;    
+        }
+    }
+}
