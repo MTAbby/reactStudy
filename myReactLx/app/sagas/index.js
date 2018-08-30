@@ -9,8 +9,8 @@
 import { all, fork } from 'redux-saga/effects'
 // import { fetchUser } from './user/userSaga'
 import { loginFlow } from './login/loginSaga'
-// import { fetchPie } from './product/productSaga'
-// import { fetchSm } from './smList/listSaga'
+
+import {fetchPracticePage1} from './practiceSaga/page1/index'
 
 /**
  * @description 整合所有saga
@@ -39,6 +39,7 @@ export default function* root() {
   yield all([
     // fork(fetchUser),
     fork(loginFlow),
+    fork(fetchPracticePage1)
     // fork(fetchPie),
     // fork(fetchSm)
   ])

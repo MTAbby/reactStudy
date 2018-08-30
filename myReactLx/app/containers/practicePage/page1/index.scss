@@ -1,0 +1,39 @@
+.search-box {
+  form {
+    padding: 0 20px;
+  }
+}
+
+/* 新增用户 */
+.add-user-box {
+  .title{
+    line-height: 50px;
+    border-bottom: 1px solid #bdbdbd;
+    padding: 0 20px;
+  }
+  a {
+    color: rgba(0, 0, 0, 0.65);
+  }
+  .but-return{
+    display: inline-block;
+    margin-top: 6px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.65);
+    border-radius: 100%;
+    text-align: center;
+    line-height: 35px;
+    float: right;
+    cursor: pointer;
+    &::after {
+      margin-left:-4px;
+      content: '\E612';
+      font-family: "anticon" !important;
+    }
+    &:hover{
+      color: #1890ff;
+      border-color: #1890ff;
+    }
+  }
+  
+}

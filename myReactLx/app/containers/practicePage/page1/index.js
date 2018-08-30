@@ -1,87 +1,61 @@
 /*
  * @Author: shuman
- * @Date: 2018-08-27 17:26:39
+ * @Date: 2018-08-30 09:21:39
  * @LastEditors: shuman
- * @LastEditTime: 2018-08-29 14:49:42
- * @Description: 练习页面1
+ * @LastEditTime: 2018-08-30 17:12:57
+ * @Description: 练习页面
  */
-
 import React, { Component } from 'react'
-import { Breadcrumb, Divider, Row, Col, Icon, Form, Input, Select } from 'antd'
-const FormItem = Form.Item
-const Option = Select.Option
+import { connect } from 'react-redux'
+import { Breadcrumb, Divider, Icon } from 'antd'
+import SearchForm from './search'
+import UserTable from '@/components/table/index'
+import { page1Request } from '@/actions/practiceAction/page1Action'
+import './index.scss'
+
+/**
+ * @description 筛选state
+ * @param {object} loggedUser 从reducer中筛选的对象
+ * @return {object} state对象
+ */
+const pageListProps = ({ practicePageData1 }) => {
+  return {
+    pageList: practicePageData1.pageList
+  }
+}
+
+@connect(pageListProps)
 export default class practicePage1 extends Component {
-    handleChange(value) {
-        console.log(`selected ${value}`);
+  constructor () {
+    super()
+  }
+  componentDidMount() {
+    this.props.dispatch(page1Request())
+  }
+
+  render() {
+    let { pageList } = this.props
+    // 给数据添加key属性，用于antd组件
+    const newData = pageList
+    if(pageList) {
+      pageList.map((d, i) => {
+        newData[i].key = d.id
+      })
     }
-    render() {
-        const formItemLayout = {
-            labelCol: {
-                xs: { span: 12 },
-                sm: { span: 4 },
-            },
-            wrapperCol: {
-                xs: { span: 12 },
-                sm: { span: 18 },
-            },
-        }
-
-        return (
-            <div className="com-content">
-                <Breadcrumb style={{ margin: '16px 0' }}>
-                    <Breadcrumb.Item>练习页面</Breadcrumb.Item>
-                    <Breadcrumb.Item>用户管理</Breadcrumb.Item>
-                </Breadcrumb>
-                <div style={{ background: '#fff', padding: '1px 0 24px 0', minHeight: 380 }}>
-                    {/* 条件搜索框 */}
-                    <div>
-                        <Divider orientation="left"><Icon type="search" />按条件搜索</Divider>
-                        <Form>
-                            <Row>
-                                <Col span={8}>
-                                    <FormItem
-                                        {...formItemLayout}
-                                        label="用户姓名"
-                                    >
-                                        <Input placeholder="请输入用户名称" />
-                                    </FormItem>
-                                </Col>
-                                <Col span={8}>
-                                    <FormItem
-                                        {...formItemLayout}
-                                        label="登录账户"
-                                    >
-                                        <Input placeholder="请输入登录账户" />
-                                    </FormItem>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col span={8}>
-                                    <FormItem
-                                        {...formItemLayout}
-                                        label="所属机构"
-                                    >
-                                        <Input placeholder="请输入所诉机构" />
-                                    </FormItem>
-                                </Col>
-                                <Col span={8}>
-                                    <FormItem
-                                        {...formItemLayout}
-                                        label="职位岗位"
-                                    >
-                                        <Select placeholder="请选择"  style={{ width: "100%"}} onChange={this.handleChange}>
-                                            <Option value="民警">民警</Option>
-                                            <Option value="处长">处长</Option>
-                                        </Select>
-                                    </FormItem>
-                                </Col>
-                            </Row>
-                        </Form>
-
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
+    return (
+      <div className="com-content">
+        <Breadcrumb style={{ margin: '16px 0' }}>
+          <Breadcrumb.Item>练习页面</Breadcrumb.Item>
+          <Breadcrumb.Item>用户管理</Breadcrumb.Item>
+        </Breadcrumb>
+        <div style={{ background: '#fff', padding: '1px 0 24px 0', minHeight: 380 }}>
+          {/* 条件搜索框 */}
+          <SearchForm />
+          {/* 用户列表显示 */}
+          <Divider orientation="left"><Icon type="profile" />用户列表</Divider>
+          <UserTable data={newData} />
+        </div>
+      </div>
+    )
+  }
 }

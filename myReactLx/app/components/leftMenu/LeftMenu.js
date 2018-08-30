@@ -19,9 +19,7 @@ export default class PrimarySider extends Component {
         collapsed={this.state.collapsed}
         onCollapse={this.onCollapse}
       >
-        <div className="logo" />
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-
           <Menu.Item key='effectsList'>
             <NavLink to='/app/effectsList'>
                 <Icon type="heart" />

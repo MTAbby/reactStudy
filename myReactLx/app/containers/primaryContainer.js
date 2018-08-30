@@ -41,6 +41,11 @@ const practicePage = Loadable({
   loader: () => import('./practicePage/page1/index'),
   loading: LoadingComponent
 })
+// 练习界面-添加用户
+const practicePageAddUser = Loadable({
+  loader: () => import('./practicePage/page1/addUser'),
+  loading: LoadingComponent
+})
 
 @connect(null)
 export default class PrimaryHeaderContainer extends Component {
@@ -59,6 +64,7 @@ export default class PrimaryHeaderContainer extends Component {
                   <Route exact path={`${match.path}/effectsList/0`} component={LoadableAnimation0}/>
                   <Route exact path={`${match.path}/effectsList/1`} component={LoadableAnimation0}/>
                   <Route exact path={`${match.path}/practice`} component={practicePage}/>
+                  <Route exact path={`${match.path}/practice/addUser`} component={practicePageAddUser}/>
                   <Route path={`${match.path}`} component={LoadableWelcome} />
                 </Switch>
             </Content> 
