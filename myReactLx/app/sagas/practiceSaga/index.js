@@ -1,4 +1,4 @@
-import fetchPage1 from './page1/pageData'
+import fetchPage1 from './page1/mockData'
 
 export{
   fetchPage1

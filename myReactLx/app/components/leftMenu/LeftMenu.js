@@ -37,16 +37,16 @@ export default class PrimarySider extends Component {
             <span>webGL练习</span>
           </Menu.Item>
           <SubMenu
-            key="3"
+            key="4"
             title={<span><Icon type="user" /><span>单纯练习</span></span>}
           >
-            <Menu.Item key="4">
+            <Menu.Item key="practice1">
               <NavLink to='/app/practice'>
-               传值
+               用户管理（练习）
               </NavLink>
             </Menu.Item>
-            <Menu.Item key="5">Bill</Menu.Item>
-            <Menu.Item key="6">Alex</Menu.Item>
+            <Menu.Item key="practice2">Bill</Menu.Item>
+            <Menu.Item key="practice3">Alex</Menu.Item>
           </SubMenu>
           <Menu.Item key="7">
             <Icon type="file" />
