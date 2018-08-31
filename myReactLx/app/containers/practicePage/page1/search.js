@@ -14,6 +14,10 @@ const FormItem = Form.Item
 const Option = Select.Option
 
 export default class searchForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {value: ''}
+　}
   handleChange(value) {
     console.log(`selected ${value}`);
   }
@@ -29,7 +33,6 @@ export default class searchForm extends Component {
         sm: { span: 18 },
       },
     }
-
     return (
       <div className="search-box">
         <Divider orientation="left"><Icon type="profile" />按条件搜索</Divider>
@@ -73,7 +76,9 @@ export default class searchForm extends Component {
               </FormItem>
             </Col>
             <Col span={8}>
-              <Button type="primary" style={{marginRight: '20px'}}><Icon type="search" />搜索</Button>
+              <Button type="primary" style={{marginRight: '20px'}}  htmlType='submit' >
+                <Icon type="search" />搜索
+              </Button>
               <NavLink to='/app/practice/addUser'>
                 <Button type="dashed"><Icon type="plus" />添加</Button>
               </NavLink>

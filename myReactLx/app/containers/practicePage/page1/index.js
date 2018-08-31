@@ -32,8 +32,9 @@ export default class practicePage1 extends Component {
   componentDidMount() {
     this.props.dispatch(page1Request())
   }
-
+  
   render() {
+    console.log(this.props)
     let { pageList } = this.props
     // 给数据添加key属性，用于antd组件
     const newData = pageList
