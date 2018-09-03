@@ -11,6 +11,7 @@ import { all, fork } from 'redux-saga/effects'
 import { loginFlow } from './login/loginSaga'
 
 import {fetchPracticePage1} from './practiceSaga/page1/index'
+import {fetchAddUser} from './practiceSaga/addUser/index'
 
 /**
  * @description 整合所有saga
@@ -39,7 +40,8 @@ export default function* root() {
   yield all([
     // fork(fetchUser),
     fork(loginFlow),
-    fork(fetchPracticePage1)
+    fork(fetchPracticePage1),
+    fork(fetchAddUser)
     // fork(fetchPie),
     // fork(fetchSm)
   ])

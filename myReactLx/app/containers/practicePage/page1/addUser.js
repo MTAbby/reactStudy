@@ -2,39 +2,56 @@
  * @Author: shuman
  * @Date: 2018-08-30 16:53:58
  * @LastEditors: shuman
- * @LastEditTime: 2018-08-30 18:04:44
+ * @LastEditTime: 2018-09-03 22:17:47
  * @Description: 新增用户
  */
 
  import React, { Component }  from 'react'
+ import { connect } from 'react-redux'
  import {Row, Col, Form, Input, Button, Icon } from 'antd'
  import { NavLink } from 'react-router-dom'
  import './index.scss'
+ import { addUserRequest } from '@/actions/practiceAction/addUser'
 
  const FormItem = Form.Item
+
+/**
+ * @description 筛选state
+ * @param {object} loggedUser 从reducer中筛选的对象
+ * @return {object} state对象
+ */
+const addUserProps = ({ addUser }) => {
+  return {
+    addUser: addUser
+  }
+}
+ @connect(addUserProps)
 
 class addUser extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: '', 
-      name: ''
+      valueData: ''
     }
     Form.create()
   }
 
+  // 点击提交按钮后提交用户信息
   handleSubmit = (e) => {
     e.preventDefault()
+    let { valueData } = this.state
+    let { dispatch } = this.props
     this.props.form.validateFields((err, values) => {
       if(!err){
+        valueData = values
+        console.log(valueData, this.props)
+        dispatch(addUserRequest(valueData))
+        // this.props.history.push('/app/practice')
         alert('成功！')
-        this.props.history.push('/app/practice')
-        // 提交数据
-        console.log(err, this.props)
       }
     })
-    
   }
+
    render(){
      let { getFieldDecorator } = this.props.form
     const formItemLayout = {

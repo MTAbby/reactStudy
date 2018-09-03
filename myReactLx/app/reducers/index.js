@@ -5,11 +5,11 @@ import createReducer from '@/util/createReducer'
 // import { LOAD_PRODUCT_SUCCESS } from '@/actions/productAction'
 // import { LOAD_SM_SUCCESS } from '@/actions/smAction'
 import LoggedUserReducer from './loggedUserReducer'
-import { PAGE1_SUCCESS } from '@/actions/practiceAction/page1Action'
+import PracticePage1 from './practicePage1'
+import AddUser from './addUser'
 // import SmUserReducer from './smUserReducer'
 
 // 根据action.type生成通用的reducer
-const practicePageData1 = createReducer(PAGE1_SUCCESS)
 // const smReducer = createReducer(LOAD_SM_SUCCESS)
 
 /**
@@ -20,7 +20,8 @@ export const makeRootReducer = (asyncReducers) => {
   // console.log(1111,SmUserReducer)
   return combineReducers({
     loggedUser: LoggedUserReducer,
-    practicePageData1: practicePageData1,
+    practicePageData1: PracticePage1,
+    addUser: AddUser,
     // product: productReducer,
     // routing: routerReducer,
     // smList: SmUserReducer,
