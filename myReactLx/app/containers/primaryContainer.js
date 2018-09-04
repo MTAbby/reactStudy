@@ -11,7 +11,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-import { Layout, Menu, Breadcrumb, Icon} from 'antd'
+import { Layout } from 'antd'
 const { Content,  Footer } = Layout
 
 import PrimaryHeader from '@/components/header/Header'
@@ -20,22 +20,48 @@ import LoadingComponent from '@/components/loading/LoadingComponent'
 
 import Loadable from 'react-loadable'
 
-// // 按需加载组件
-const LoadableEffectsList = Loadable({
-  loader: () => import('./effects/effectsList'),
-  loading: LoadingComponent
-})
 // 欢迎界面
 const LoadableWelcome = Loadable({
   loader: () => import('./welcome/welcome'),
   loading: LoadingComponent
 })
-// 欢迎界面
-const LoadableAnimation0 = Loadable({
-  loader: () => import('./effects/animation0/animation'),
+// 动效练习-SVG动画列表
+const LoadableEffectsList = Loadable({
+  loader: () => import('./effects/SVG/index'),
   loading: LoadingComponent
 })
 
+// svg动画子页面
+const LoadableAnimation0 = Loadable({
+  loader: () => import('./effects/SVG/animation0/animation'),
+  loading: LoadingComponent
+})
+
+// 动效练习-canvas动画列表
+const LoadableCanvasList = Loadable({
+  loader: () => import('./effects/Canvas/index'),
+  loading: LoadingComponent
+})
+// 动效练习-canvas动画子页面
+const LoadableCanvas0 = Loadable({
+  loader: () => import('./effects/Canvas/particle/index'),
+  loading: LoadingComponent
+})
+const LoadableCanvas1 = Loadable({
+  loader: () => import('./effects/Canvas/start/index'),
+  loading: LoadingComponent
+})
+
+// 图表练习-地图
+const LoadableMapList = Loadable({
+  loader: () => import('./chart/map/index'),
+  loading: LoadingComponent
+})
+// 图表练习-地图子页面
+const LoadableFleLineMap = Loadable({
+  loader: () => import('./chart/map/fleLineMap/index'),
+  loading: LoadingComponent
+})
 // 练习界面
 const practicePage = Loadable({
   loader: () => import('./practicePage/page1/index'),
@@ -60,9 +86,13 @@ export default class PrimaryHeaderContainer extends Component {
           <Layout>
              <Content style={{ margin: '0 16px' }}>
                 <Switch>
-                  <Route exact path={`${match.path}/effectsList`} component={LoadableEffectsList} />
-                  <Route exact path={`${match.path}/effectsList/0`} component={LoadableAnimation0}/>
-                  <Route exact path={`${match.path}/effectsList/1`} component={LoadableAnimation0}/>
+                  <Route exact path={`${match.path}/svgList`} component={LoadableEffectsList} />
+                  <Route exact path={`${match.path}/svgList/0`} component={LoadableAnimation0}/>
+                  <Route exact path={`${match.path}/canvasList`} component={LoadableCanvasList} />
+                  <Route exact path={`${match.path}/canvasList/0`} component={LoadableCanvas0}/>
+                  <Route exact path={`${match.path}/canvasList/1`} component={LoadableCanvas1}/>
+                  <Route exact path={`${match.path}/mapList`} component={LoadableMapList} />
+                  <Route exact path={`${match.path}/mapList/0`} component={LoadableFleLineMap}/>
                   <Route exact path={`${match.path}/practice`} component={practicePage}/>
                   <Route exact path={`${match.path}/practice/addUser`} component={practicePageAddUser}/>
                   <Route path={`${match.path}`} component={LoadableWelcome} />

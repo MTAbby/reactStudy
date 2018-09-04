@@ -44,8 +44,12 @@ class addUser extends Component {
     this.props.form.validateFields((err, values) => {
       if(!err){
         valueData = values
-        console.log(valueData, this.props)
-        dispatch(addUserRequest(valueData))
+        console.log(valueData, this.state)
+        try {
+          dispatch(addUserRequest(valueData))
+        } catch(exception) {
+         console.log(exception)
+        }
         // this.props.history.push('/app/practice')
         alert('成功！')
       }
