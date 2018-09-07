@@ -51,6 +51,10 @@ const LoadableCanvas1 = Loadable({
   loader: () => import('./effects/Canvas/start/index'),
   loading: LoadingComponent
 })
+const LoadableCanvas2 = Loadable({
+  loader: () => import('./effects/Canvas/ball/index'),
+  loading: LoadingComponent
+})
 
 // 图表练习-地图
 const LoadableMapList = Loadable({
@@ -91,6 +95,7 @@ export default class PrimaryHeaderContainer extends Component {
                   <Route exact path={`${match.path}/canvasList`} component={LoadableCanvasList} />
                   <Route exact path={`${match.path}/canvasList/0`} component={LoadableCanvas0}/>
                   <Route exact path={`${match.path}/canvasList/1`} component={LoadableCanvas1}/>
+                  <Route exact path={`${match.path}/canvasList/2`} component={LoadableCanvas2}/>
                   <Route exact path={`${match.path}/mapList`} component={LoadableMapList} />
                   <Route exact path={`${match.path}/mapList/0`} component={LoadableFleLineMap}/>
                   <Route exact path={`${match.path}/practice`} component={practicePage}/>

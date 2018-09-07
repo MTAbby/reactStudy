@@ -15,7 +15,7 @@ export default class Animation0 extends Component {
     let ctx = document.getElementById('myCanvas')
     let content = ctx.getContext('2d')
     let round = []
-    let initRoundPopulation = 90
+    let initRoundPopulation = 300
     let WIDTH = 800
     let HEIGHT = 500
     ctx.width = WIDTH
@@ -51,8 +51,8 @@ export default class Animation0 extends Component {
     }
 
     RoundItem.prototype.move = function () {
-      this.y -= Math.random() * 0.45
-      this.x += Math.random() * 0.35
+      this.y -= Math.random() * 0.55
+      this.x += Math.random() * 0.25
       if (this.y <= -10){
         this.y = HEIGHT + 10
       }

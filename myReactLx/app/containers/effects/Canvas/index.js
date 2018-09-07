@@ -21,7 +21,7 @@ export default class EffectsList extends Component {
         title: '星空效果',
       },
       {
-        title: 'Title 3',
+        title: '各种小球运动练习',
       },
       {
         title: 'Title 4',

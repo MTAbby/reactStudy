@@ -2,14 +2,19 @@
  * @Author: shuman
  * @Date: 2018-09-04 15:50:35
  * @LastEditors: shuman
- * @LastEditTime: 2018-09-04 15:55:39
+ * @LastEditTime: 2018-09-05 11:37:53
  * @Description: 绘制星空效果
  */
 
 import React, { Component } from 'react'
 import { Breadcrumb } from 'antd'
+import start from './start'
 
  export default class starrySky extends Component {
+  componentDidMount(){
+    let Start = new start('myCanvas')
+    Start.drawCanvas()
+  }
   render() {
     return (
       <div className="com-content">
@@ -18,7 +23,10 @@ import { Breadcrumb } from 'antd'
           <Breadcrumb.Item>canvas动画</Breadcrumb.Item>
           <Breadcrumb.Item>星空效果</Breadcrumb.Item>
         </Breadcrumb>
-        <canvas id='myCanvas' style={{background: '#000' }} ></canvas>
+        <div style={{background: '#000', width: 800, height:400}}>
+          <canvas id='myCanvas' style={{background: 'transparent'}} ></canvas>
+          
+        </div>
       </div>
     )
   }
