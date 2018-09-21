@@ -45,6 +45,11 @@ export default class PrimarySider extends Component {
                 <span>地图</span>
               </NavLink>
             </Menu.Item>
+            <Menu.Item key="chartFlow">
+              <NavLink to='/app/flowList'>
+                <span>流程图</span>
+              </NavLink>
+            </Menu.Item>
           </SubMenu>
           <Menu.Item key="3">
             <Icon type="star" />

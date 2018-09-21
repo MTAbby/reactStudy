@@ -24,7 +24,7 @@ export default class EffectsList extends Component {
         title: '各种小球运动练习',
       },
       {
-        title: 'Title 4',
+        title: '字体流效果',
       },
       {
         title: 'Title 4',

@@ -7,6 +7,8 @@
  * @Last Modified time: 2018-05-30 17:46:31
   */
 
+import page from '@/containers'
+
 export default {
   // 是否使用mock模式，在mock模式下向服务器的请求被mockjs拦截
   mock: true, // search.indexOf('mock') !== -1,
@@ -31,5 +33,14 @@ export default {
   // 固定的页面宽
   pageWidth: 1920,
   // 固定的页面高
-  pageHeight: 1080
+  pageHeight: 1080,
+  routing: [
+    {
+      page: '/svgList',
+      name: 'SVG动画',
+      component: page.svgList
+    }
+  ]
+
+
 }

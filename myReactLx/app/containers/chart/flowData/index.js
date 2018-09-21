@@ -1,21 +1,22 @@
 /*
- * @Author: shuman 
- * @Date: 2018-08-15 15:37:46 
- * @Last Modified by: shuman
- * @Description:   SVG动效练习列表组件 
- * @Last Modified time: 2018-08-21 15:25:18
+ * @Author: shuman
+ * @Date: 2018-09-18 13:58:42
+ * @LastEditors: shuman
+ * @LastEditTime: 2018-09-18 14:23:13
+ * @Description: 流程图首页
+ * @PS:这里主要应该是针对go.js的学习
  */
 
 import React, { Component } from 'react'
 import ComList from '@/components/list/index'
-import './index.scss'
+// import './index.scss'
 
-export default class EffectsList extends Component {
+export default class FlowList extends Component {
   render() {
     const { match } = this.props
     const data = [
       {
-        title: '有关线条的一些练习',
+        title: '简单的流程图',
       },
       {
         title: 'Title 2',
@@ -67,5 +68,3 @@ export default class EffectsList extends Component {
     )
   }
 }
-
-

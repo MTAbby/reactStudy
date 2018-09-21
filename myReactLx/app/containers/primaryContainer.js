@@ -55,6 +55,10 @@ const LoadableCanvas2 = Loadable({
   loader: () => import('./effects/Canvas/ball/index'),
   loading: LoadingComponent
 })
+const LoadableCanvas3 = Loadable({
+  loader: () => import('./effects/Canvas/textFlow/index'),
+  loading: LoadingComponent
+})
 
 // 图表练习-地图
 const LoadableMapList = Loadable({
@@ -66,6 +70,18 @@ const LoadableFleLineMap = Loadable({
   loader: () => import('./chart/map/fleLineMap/index'),
   loading: LoadingComponent
 })
+
+// 图表练习-流程图
+const LoadableFlowList = Loadable({
+  loader: () => import('./chart/flowData'),
+  loading: LoadingComponent
+})
+// 图表练习-地图子页面
+const LoadableFlowIndex1 = Loadable({
+  loader: () => import('./chart/flowData/flowIndex1/index'),
+  loading: LoadingComponent
+})
+
 // 练习界面
 const practicePage = Loadable({
   loader: () => import('./practicePage/page1/index'),
@@ -81,14 +97,13 @@ const practicePageAddUser = Loadable({
 export default class PrimaryHeaderContainer extends Component {
   render() {
     const { match } = this.props
-    console.log(match)
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <PrimaryHeader/>
         <Layout style={{marginTop: 64 }}>
           <PrimaryLeftMenu/>
           <Layout>
-             <Content style={{ margin: '0 16px' }}>
+              <Content style={{ margin: '0 16px' }}>
                 <Switch>
                   <Route exact path={`${match.path}/svgList`} component={LoadableEffectsList} />
                   <Route exact path={`${match.path}/svgList/0`} component={LoadableAnimation0}/>
@@ -96,13 +111,16 @@ export default class PrimaryHeaderContainer extends Component {
                   <Route exact path={`${match.path}/canvasList/0`} component={LoadableCanvas0}/>
                   <Route exact path={`${match.path}/canvasList/1`} component={LoadableCanvas1}/>
                   <Route exact path={`${match.path}/canvasList/2`} component={LoadableCanvas2}/>
+                  <Route exact path={`${match.path}/canvasList/3`} component={LoadableCanvas3}/>
                   <Route exact path={`${match.path}/mapList`} component={LoadableMapList} />
                   <Route exact path={`${match.path}/mapList/0`} component={LoadableFleLineMap}/>
+                  <Route exact path={`${match.path}/flowList`} component={LoadableFlowList} />
+                  <Route exact path={`${match.path}/flowList/0`} component={LoadableFlowIndex1}/>
                   <Route exact path={`${match.path}/practice`} component={practicePage}/>
                   <Route exact path={`${match.path}/practice/addUser`} component={practicePageAddUser}/>
-                  <Route path={`${match.path}`} component={LoadableWelcome} />
+                  <Route path={`${match.path}`} component={LoadableWelcome} /> 
                 </Switch>
-            </Content> 
+              </Content> 
             <Footer>我是底部</Footer>
           </Layout>
         </Layout>
