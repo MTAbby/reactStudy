@@ -39,6 +39,22 @@ export default {
       page: '/svgList',
       name: 'SVG动画',
       component: page.svgList
+    }, {
+      page: '/cssList',
+      name: 'CSS动画',
+      component: page.cssList
+    }, {
+      page: '/canvasList',
+      name: 'canvas动画',
+      component: page.canvasList
+    }, {
+      page: '/mapList',
+      name: '地图',
+      component: page.mapList
+    }, {
+      page: '/flowList',
+      name: '流程图',
+      component: page.flowDataList
     }
   ]
 

@@ -15,10 +15,12 @@ import { Layout } from 'antd'
 const { Content,  Footer } = Layout
 
 import PrimaryHeader from '@/components/header/Header'
-import PrimaryLeftMenu from '@/components/leftMenu/leftMenu'
+import PrimaryLeftMenu from '@/components/leftMenu/LeftMenu'
 import LoadingComponent from '@/components/loading/LoadingComponent'
 
 import Loadable from 'react-loadable'
+
+import globalConfig from '@/config'
 
 // 欢迎界面
 const LoadableWelcome = Loadable({
@@ -32,10 +34,13 @@ const LoadableEffectsList = Loadable({
 })
 
 // svg动画子页面
-const LoadableAnimation0 = Loadable({
-  loader: () => import('./effects/SVG/animation0/animation'),
-  loading: LoadingComponent
-})
+// const LoadableAnimation0 = Loadable({
+//   loader: () => import('./effects/SVG/animation0/animation'),
+//   loading: LoadingComponent
+// })
+
+// 动效练习-CSS动画列表
+// LoadableCssList
 
 // 动效练习-canvas动画列表
 const LoadableCanvasList = Loadable({
@@ -95,8 +100,12 @@ const practicePageAddUser = Loadable({
 
 @connect(null)
 export default class PrimaryHeaderContainer extends Component {
+
   render() {
     const { match } = this.props
+    const config = {
+      dataSource: globalConfig.get('routing')
+    }
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <PrimaryHeader/>
@@ -105,8 +114,27 @@ export default class PrimaryHeaderContainer extends Component {
           <Layout>
               <Content style={{ margin: '0 16px' }}>
                 <Switch>
-                  <Route exact path={`${match.path}/svgList`} component={LoadableEffectsList} />
+                  {
+                    config.dataSource.map((d, i) => {
+                      return(
+                        <Route exact key={'nav'+i} path={`${match.path}${d.page}`} component={d.component} ></Route>
+                      )
+                    })
+                  }
+                  {/* <Route exact path={`${match.path}/svgList/0`} component={Loadable({
+                    loader: () => import('./effects/SVG/subPage/animation0/animation'),
+                    loading: LoadingComponent
+                  })} /> */}
+                  {/* <Route exact path={`${match.path}/svgList`} component={LoadableEffectsList} />
                   <Route exact path={`${match.path}/svgList/0`} component={LoadableAnimation0}/>
+                  <Route exact path={`${match.path}/cssList`} component={Loadable({
+                    loader: () => import('./effects/CSS'),
+                    loading: LoadingComponent
+                  })} />
+                  <Route exact path={`${match.path}/cssList/0`} component={Loadable({
+                    loader: () => import('./effects/CSS/cssDemo0'),
+                    loading: LoadingComponent
+                  })} />
                   <Route exact path={`${match.path}/canvasList`} component={LoadableCanvasList} />
                   <Route exact path={`${match.path}/canvasList/0`} component={LoadableCanvas0}/>
                   <Route exact path={`${match.path}/canvasList/1`} component={LoadableCanvas1}/>
@@ -118,7 +146,9 @@ export default class PrimaryHeaderContainer extends Component {
                   <Route exact path={`${match.path}/flowList/0`} component={LoadableFlowIndex1}/>
                   <Route exact path={`${match.path}/practice`} component={practicePage}/>
                   <Route exact path={`${match.path}/practice/addUser`} component={practicePageAddUser}/>
-                  <Route path={`${match.path}`} component={LoadableWelcome} /> 
+                  <Route path={`${match.path}`} component={LoadableWelcome} />  */}
+                  <Route exact path={`${match.path}/flowList/0`} component={LoadableFlowIndex1}/>
+                  <Route exact path={`${match.path}`} component={LoadableWelcome} /> 
                 </Switch>
               </Content> 
             <Footer>我是底部</Footer>

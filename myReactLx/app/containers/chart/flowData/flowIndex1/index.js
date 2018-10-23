@@ -17,6 +17,9 @@ export default class Flow1 extends Component {
     const ele = document.getElementById('flowIndex')
     const flow = new hyflow.Flow(ele,{
       editable:true,
+      onNodeMouseEnter: () => {
+        console.log(1111)
+      }
     })
     
     flow.setOption({

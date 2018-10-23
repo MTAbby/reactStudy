@@ -7,18 +7,15 @@
  */
 
 import React, { Component } from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
-import Login from './login'
+import ComList from '@/components/list/index'
+import './index.scss'
 
-import SubPage from './subPage'
 export default class EffectsList extends Component {
   render() {
     const { match } = this.props
     const data = [
       {
-        title: '有关线条的一些练习',
-        page: '/0',
-        component: SubPage.page0
+        title: '有关线条的一些练习'
       },
       {
         title: 'Title 2',
@@ -45,20 +42,9 @@ export default class EffectsList extends Component {
         title: 'Title 2',
       }
     ]
-    console.log(match.path)
     return (
       <div className="com-content-frame">
-        <Switch>
-          {
-            data.map((d, i) => {
-              console.log(`${match.path}${d.page}`)
-              return(
-                <Route path={`${match.path}${d.page}`} component={d.component} />
-              )
-            })
-          }
-          <Route path={`${match.path}`} component={Login} /> 
-        </Switch>
+        <ComList valueData={data} match={match} />
       </div>
     )
   }

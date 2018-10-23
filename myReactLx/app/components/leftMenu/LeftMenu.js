@@ -29,7 +29,11 @@ export default class PrimarySider extends Component {
                 <span>SVG动画</span>
               </NavLink>
             </Menu.Item>
-            <Menu.Item key="practice2">CSS动画</Menu.Item>
+            <Menu.Item key='cssAnimat'>
+              <NavLink to='/app/cssList'>
+                <span>CSS动画</span>
+              </NavLink>
+            </Menu.Item>
             <Menu.Item key='canvasAnimat'>
               <NavLink to='/app/canvasList'>
                 <span>canvas动画</span>

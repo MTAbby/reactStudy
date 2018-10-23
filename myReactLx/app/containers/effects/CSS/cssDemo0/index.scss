@@ -1,0 +1,28 @@
+
+.parcel {
+  width: 200px;
+  height: 200px;
+  // border: 1px solid #c18;
+  margin: 200px auto;
+  /*指定子元素定位在三维空间内*/
+  transform-style: preserve-3d;
+  /*让所有item的父级元素（即items）旋转，item就是围绕着旋转了*/
+  animation: autoMove 10s infinite linear;
+  transform: rotateY(-360deg)
+}
+
+.value-box {
+  position: absolute;
+  width: 100px;
+  height: 120px;
+  background: rgba(0,0,255,0.6);
+  transition: 1s all;
+}
+
+/*定义自动旋转的动画*/
+@keyframes autoMove {
+  from { }
+  to {
+        // transform: rotateY(-360deg);
+    }
+}

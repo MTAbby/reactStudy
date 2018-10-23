@@ -54,20 +54,22 @@ import _ from 'lodash'
     this.canvas.height = height
     let num = 0
 
+    let restorePoint = {}
+
     for(let i = 0; i < columns; i++){
       drops[i] = 1
     }
 
     function animation(){
       num++ 
-      ctx.fillStyle = "rgba(0, 0, 0, 0)"
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)"
       ctx.fillRect(0, 0, width, height)
 
-      ctx.fillStyle = "#0F0"
+      ctx.fillStyle = '#0f0'
       ctx.font = fontSize + "px arial"
       for(let i = 0; i < drops.length; i++){
         let text = textStrs[ Math.floor(Math.random() * textStrs.length) ]
-        ctx.clearRect(i * fontSize, drops[i] * fontSize, i * fontSize + 5, drops[i] * fontSize + 5)
+        // ctx.clearRect(i * fontSize, drops[i] * fontSize, i * fontSize + 5, drops[i] * fontSize + 5)
         ctx.fillText(text, i * fontSize, drops[i] * fontSize)
         if(drops[i] * fontSize > height && Math.random() > 0.975){
           drops[i] = 1

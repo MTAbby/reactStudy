@@ -28,7 +28,8 @@ export default (initialState = {}) => {
   // 配置中间件
   // ======================================================
   const sagaMiddleware = createSagaMiddleware()
-  const middleware = [sagaMiddleware, routerMiddleware(history), logger]
+  // const middleware = [sagaMiddleware, routerMiddleware(history), logger]
+  const middleware = [sagaMiddleware, routerMiddleware(history)]
 
   // ======================================================
   // 增强Store
